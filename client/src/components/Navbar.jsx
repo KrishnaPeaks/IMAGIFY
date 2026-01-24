@@ -3,7 +3,7 @@ import {assets} from '../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 const Navbar = () => {
      
-    const [user,setUser] = useState(true);
+    const [user,setUser] = useState(null);
     const navigate = useNavigate() 
 
   return (
@@ -16,12 +16,12 @@ const Navbar = () => {
                     <img  className='w-5' src={assets.credit_star} alt=""/>
                     <p className='text-xs sm:text-sm font-medium text-gray-600'>Credits left :50 </p>
                 </button>
-                <p>Hi,Krishna</p>
+                <p className='text-gray-700 max-sm:hidden pl-4'>Hi,Krishna</p>
                 <div className='relative group'>
-                    <img src={assets.profile_icon} className='w-10' alt=""/>
+                    <img src={assets.profile_icon} className='w-10 drop-shadow' alt=""/>
                     <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12 '>
-                        <ul>
-                            <li>Logout</li>
+                        <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm' >
+                            <li className='py-1 px-2 cursor-pointer pr-10 '>Logout</li>
                         </ul>
 
                     </div>
