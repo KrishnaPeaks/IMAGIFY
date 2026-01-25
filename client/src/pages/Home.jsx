@@ -1,8 +1,12 @@
 import React from 'react'
 import Header from '../components/Header'
+import Steps from '../components/Steps'
 function Home() {
   return (
-    <div><Header/></div>
+    <div>
+        <Header/>
+        <Steps/>
+    </div>
   )
 }
 

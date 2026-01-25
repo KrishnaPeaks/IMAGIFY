@@ -1,6 +1,5 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import { img } from 'framer-motion/client'
 
 function Header() {
   return (
@@ -18,7 +17,7 @@ function Header() {
                 <img className='rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10 ' src={index%2===0 ? assets.sample_img_2: assets.sample_img_1 } alt="" key={index} width={70} />
             ))}
         </div>
-
+            <p className='mt-2 text-neutral-600 '>Generated Images From Imagify</p>
      </div>
   )
 }
