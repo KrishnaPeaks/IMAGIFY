@@ -1,14 +1,17 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { useState } from 'react'
-const[image,setImage] = useState(assets.sample_img_1)
-const[isImageLoaded , setIsImageLoaded] = useState(false)
+
 function Result() {
+   const [image, setImage] = useState(assets.sample_img_1);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [loading,setLoading] = useState(false)
+
   return (<form className='flex flex-col min-h-[90vh] justify-center items-center '>
       <div className='relative'>
         <img src={image} alt="" className='max-w-sm rounded'/>
         <span className='absolute b-0 left-0 h-1 bg-emerald-500 w-full transition-all duration-[10s]'/>
-      <p>Loading......</p> 
+      <p className={!loading ?  'hidden' : ''}>Loading......</p> 
       </div>
       {!isImageLoaded &&
       <div className='flex w-full max-w-xl bg-neutral-500 text-white text-sm p-0.5 mt-10 rounded-full '>
@@ -17,7 +20,7 @@ function Result() {
       </div>}
       {isImageLoaded &&
       <div className='flex gap-2 flex-wrap justify-center text-white  text-sm p-0.5 mt-10 rounded-full '>
-        <p className='bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer'>Generate Another</p>
+        <p onClick={()=>{setIsImageLoaded(false)}} className='bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer'>Generate Another</p>
         <a href={image} download className='bg-emerald-900 px-10 py-3 rounded-full cursor-pointer '>Download</a>
       </div>}
     </form>
