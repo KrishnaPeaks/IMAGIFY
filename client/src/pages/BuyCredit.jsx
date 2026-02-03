@@ -1,7 +1,10 @@
 import React from 'react'
+import {useContext} from 'react'
 import { assets, plans } from '../assets/assets'
-
+import {AppContext} from '../context/AppContext'
 function BuyCredit() {
+
+  const {user} = useContext(AppContext)
   return (
     <div  className='min-h-[80vh] pt-14 text-center mb-10'>
       <button className=' border border-gray-400 px-10 py-2 rounded-full mb-6' >Our Plans</button>
@@ -13,7 +16,7 @@ function BuyCredit() {
             <p className='mt-3 mb-1 font-semibold '>{item.id}</p>
             <p className='text-sm '>{item.desc}</p>
             <p className='mt-6 '> <span className='text-3xl font-medium'>${item.price} </span>/{item.credits} credits</p>
-            <button className='bg-black text-white mt-18 px-10 sm:px-16 py-3 rounded-full '>Get Started</button>
+            <button className='bg-black text-white mt-18 px-10 sm:px-16 py-3 rounded-full '> {user ? 'Purchase':'Get Started'}</button>
           </div>
         ))}
       </div>
