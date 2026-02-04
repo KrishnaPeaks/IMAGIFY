@@ -1,9 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 function Login() {
 
     const [state,setState] = useState('Login')
+    const {setShowLogin} = useContext(AppContext)
+
+    useEffect(()=>{
+        document.body.style.overflow = 'hidden';
+
+        return() =>{
+            document.body.style.overflow = 'unset';
+        }
+    },[])
 
 
   return (
@@ -28,11 +38,11 @@ function Login() {
         <button className='bg-blue-600 w-full text-white py-2 rounded-full '>{ state === 'Login'?'Login': 'CreateAccount'} </button>
 
         { state ==='Login'  ? <p className='mt-5 text-center '>Don't have an account? 
-        <span className='text-blue-600 cursor-pointer '>Sign Up </span></p>
+        <span onClick={()=>{setState('Sign Up')}} className='text-blue-600 cursor-pointer '>Sign Up </span></p>
         :
         <p className='mt-5 text-center '>Already have an account? 
-        <span className='text-blue-600 cursor-pointer '>Login </span></p>}
-        <img src={assets.cross_icon} className='absolute top-5 right-5 cursor-pointer '/>
+        <span onClick={()=>{setState('Login')}} className='text-blue-600 cursor-pointer '>Login </span></p>}
+        <img onClick={()=>setShowLogin(false)}  src={assets.cross_icon} className='absolute top-5 right-5 cursor-pointer '/>
     </form>
     </div>
   )

@@ -4,9 +4,10 @@ import { createContext, useState } from "react";
 
 const AppContextProvider = (props) =>{
         const [user,setUser] = useState(null); 
+        const [showLogin,setShowLogin] = useState(false)
 
         const value = {
-            user,setUser
+            user,setUser,showLogin,setShowLogin
         }
         return(<AppContext.Provider value = {value}>
             {props.children}
