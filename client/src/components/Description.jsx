@@ -1,9 +1,15 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { motion } from 'framer-motion'
 
 const Description = () => {
   return (
-    <div className='flex flex-col items-center justify-center my-24 p-6 md:px-28'>
+    <motion.div 
+    initial={{opacity:0.2,y:100}}
+    transition={{duration:1}}
+    whileInView={{opacity:1,y:0}}
+    viewport={{once:true}}
+    className='flex flex-col items-center justify-center my-24 p-6 md:px-28'>
         <h2 className='text-3xl sm:text-4xl font-semibold'>Wanna, Create AI Images You're at the right place</h2>
         <h1> Turn your imagination into visuals </h1>
  
@@ -15,7 +21,7 @@ const Description = () => {
                 <p className='text-gray-600'>Simply type in a text prompt , and our cutting-edge AI Will generate high-quality images in a second . From product visuals to character designs and portraits even concepts that dont yet exist can be visualized effortlessly. Powered by advanced AI technology, the creative possibilities are limitless! </p>
             </div>
         </div>
-    </div>
+    </motion.div>
   )
 }
 
